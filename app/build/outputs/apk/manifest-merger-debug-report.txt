@@ -42,41 +42,39 @@ MERGED from com.android.support:support-v4:21.0.3:16:5
 	android:label
 		ADDED from AndroidManifest.xml:18:9
 	android:allowBackup
-		ADDED from AndroidManifest.xml:20:9
+		ADDED from AndroidManifest.xml:19:9
 	android:icon
 		ADDED from AndroidManifest.xml:17:9
-	android:theme
-		ADDED from AndroidManifest.xml:19:9
 activity#com.samuiinteractive.ati.Start
-ADDED from AndroidManifest.xml:21:9
+ADDED from AndroidManifest.xml:20:9
 	android:label
-		ADDED from AndroidManifest.xml:23:13
-	android:configChanges
-		ADDED from AndroidManifest.xml:24:13
-	android:name
 		ADDED from AndroidManifest.xml:22:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:23:13
+	android:name
+		ADDED from AndroidManifest.xml:21:13
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:25:13
+ADDED from AndroidManifest.xml:24:13
 action#android.intent.action.MAIN
+ADDED from AndroidManifest.xml:25:17
+	android:name
+		ADDED from AndroidManifest.xml:25:25
+category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:26:17
 	android:name
-		ADDED from AndroidManifest.xml:26:25
-category#android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:27:17
-	android:name
-		ADDED from AndroidManifest.xml:27:27
+		ADDED from AndroidManifest.xml:26:27
 activity#com.samuiinteractive.ati.Bookmarks
-ADDED from AndroidManifest.xml:30:9
+ADDED from AndroidManifest.xml:29:9
 	android:label
-		ADDED from AndroidManifest.xml:32:13
-	android:name
 		ADDED from AndroidManifest.xml:31:13
-activity#com.samuiinteractive.ati.NewBookmark
-ADDED from AndroidManifest.xml:33:9
 	android:name
-		ADDED from AndroidManifest.xml:34:13
+		ADDED from AndroidManifest.xml:30:13
+activity#com.samuiinteractive.ati.NewBookmark
+ADDED from AndroidManifest.xml:32:9
+	android:name
+		ADDED from AndroidManifest.xml:33:13
 	android:finishOnTaskLaunch
-		ADDED from AndroidManifest.xml:35:13
+		ADDED from AndroidManifest.xml:34:13
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:appcompat-v7:21.0.3:15:5

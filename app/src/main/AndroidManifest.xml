@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.samuiinteractive.ati"
     android:installLocation="preferExternal"
-    android:versionCode="26"
-    android:versionName="4.0">
+    android:versionCode="27"
+    android:versionName="4.0.1">
     <uses-permission
         android:name="android.permission.INTERNET" />
     <supports-screens
@@ -16,12 +16,11 @@
     <application
         android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.NoTitleBar"
         android:allowBackup="true">
         <activity
             android:name=".Start"
             android:label="@string/app_name"
-            android:configChanges="keyboard|keyboardHidden|orientation">
+            android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
