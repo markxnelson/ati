@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Start!</string>
+    <string name="app_name">ATI</string>
+    <string name="random">Random Sutta</string>
+    <string name="bookmarks">Bookmarks</string>
+    <string name="title">Bookmark name:</string>
+    <string name="url">Page:</string>
+    <string name="save">Save</string>
+    <string name="newbookmark">New Bookmark</string>
+</resources>
