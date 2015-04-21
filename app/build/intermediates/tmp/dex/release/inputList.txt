@@ -1,0 +1,5 @@
+C:\Users\Mark\AndroidstudioProjects\ATI\app\build\intermediates\classes\release
+C:\Users\Mark\AndroidstudioProjects\ATI\app\build\intermediates\pre-dexed\release\support-annotations-21.0.3-16622f2910aa4516818f673523420b1f2e344443.jar
+C:\Users\Mark\AndroidstudioProjects\ATI\app\build\intermediates\pre-dexed\release\internal_impl-21.0.3-37f1190857294ee498dd474faea52d653e9b89df.jar
+C:\Users\Mark\AndroidstudioProjects\ATI\app\build\intermediates\pre-dexed\release\classes-f471e27ee4127a02abccbd94eb7dd9fba9d67a96.jar
+C:\Users\Mark\AndroidstudioProjects\ATI\app\build\intermediates\pre-dexed\release\classes-24a9647b06ae8072ba7dc16590f75362f7abd2df.jar

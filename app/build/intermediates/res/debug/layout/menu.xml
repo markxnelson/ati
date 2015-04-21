@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+     <item android:id="@+id/random" android:title="@string/random" />  
+     <item android:id="@+id/gotobookmarks" android:title="@string/bookmarks" />
+     <item android:id="@+id/gotonewbookmark" android:title="@string/newbookmark" />
+</menu><!-- From: file:/C:/Users/Mark/AndroidstudioProjects/ATI/app/src/main/res/layout/menu.xml -->
