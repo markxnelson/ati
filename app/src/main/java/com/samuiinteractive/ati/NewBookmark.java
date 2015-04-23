@@ -59,13 +59,13 @@ public class NewBookmark extends Activity implements OnClickListener {
 		newBookmark.setUrl(theUrl);
 		insertBookmark(newBookmark);
 
-		// redirect to main web view
-		Intent startIntent = new Intent(NewBookmark.this, Start.class);
-    	// add data bundle with url
-    	Bundle dataBundle = new Bundle();
-		dataBundle.putString("url", theUrl);
-		startIntent.putExtras(dataBundle);
-		NewBookmark.this.startActivity(startIntent);
+//		// redirect to main web view
+//		Intent startIntent = new Intent(NewBookmark.this, Start.class);
+//    	// add data bundle with url
+//    	Bundle dataBundle = new Bundle();
+//		dataBundle.putString("url", theUrl);
+//		startIntent.putExtras(dataBundle);
+//		NewBookmark.this.startActivity(startIntent);
 		this.finish();  // take this off the activity stack so we dont see it again if we his back
 
 		// this activity has finishOnTaskLaunch = true so it wont be in the activity stack if you hit back button

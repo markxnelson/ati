@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -26,6 +27,7 @@ public class Bookmarks extends Activity implements OnItemClickListener, OnItemLo
 	private ListView mListview;
 	private ListAdapter mListAdapter;
 	private ArrayList<BookmarkPojo> pojoArrayList;
+    private String savedUrl = "";
 
 	/** Called when the activity is first created. */
 	@Override
@@ -147,25 +149,52 @@ public class Bookmarks extends Activity implements OnItemClickListener, OnItemLo
 	//@Override
 	public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int arg2,
 			long arg3) {
-		// TODO Auto-generated method stub
-		System.out.println("[ATI] we need to delete bookmark " + pojoArrayList.get(arg2).getTitle());
-		Intent startIntent = new Intent(this, Start.class);
-		BookmarkPojo clickedObject = pojoArrayList.get(arg2);
-		// delete bookmark from db
-		deleteBookmark(clickedObject.getUrl());
-		Context context = getApplicationContext();
-		CharSequence text = "Bookmark deleted";
-		int duration = Toast.LENGTH_SHORT;
-		Toast toast = Toast.makeText(context, text, duration);
-		toast.show();
-		// go back to web view
-		Bundle dataBundle = new Bundle();
-		dataBundle.putString("url", clickedObject.getUrl());
-		startIntent.putExtras(dataBundle);
-		startActivity(startIntent);
-		this.finish();  // take this off the activity stack so we dont see out of date bookmarks (e.g. after a delete)
-		return false;
-	}
+
+        System.out.println("[ATI] we need to delete bookmark " + pojoArrayList.get(arg2).getTitle());
+        final BookmarkPojo clickedObject = pojoArrayList.get(arg2);
+        savedUrl = clickedObject.getUrl();
+
+        // confirmation popup
+        new AlertDialog.Builder(this)
+                .setTitle("Confirm")
+                .setMessage("Do you really want to delete this bookmark?")
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton(android.R.string.yes, new OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // delete bookmark from db
+                        deleteBookmark(clickedObject.getUrl());
+                        Context context = getApplicationContext();
+                        CharSequence text = "Bookmark deleted";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, null).show();
+
+        // update bookmarks list
+        mListview = (ListView) findViewById(R.id.bookmarks);
+        mListAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, populateList());
+        mListview.setAdapter(mListAdapter);
+
+        return false;
+    }
+
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        // go back to web view
+//        Intent startIntent = new Intent(this, Start.class);
+//        Bundle dataBundle = new Bundle();
+//        if ((savedUrl != null) && (savedUrl.length() > 0)) {
+//            dataBundle.putString("url", savedUrl);
+//        }
+//        startIntent.putExtras(dataBundle);
+//        this.finish();  // take this off the activity stack so we dont see out of date bookmarks (e.g. after a delete)
+//        startActivity(startIntent);
+//
+//	}
 	
 	public void deleteBookmark(String theUrl){
 

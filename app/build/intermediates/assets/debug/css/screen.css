@@ -46,7 +46,7 @@ body {
 	line-height: 1.1em;
 	text-align:left;
 	padding-top:10px;
-	width:680px;
+	width:device-width;
 }
 
 #H_billboard {
@@ -54,13 +54,13 @@ body {
 	border-bottom:1px solid #ccc;
 	min-height: 180px;
 	height:auto !important; height: 180px; /*ie6 min-height 'fast-hack' */
-	width:680px;
+	width:device-width;
 }
 #H_billboardHome {
 	margin:0 0 10px 0;
 	border-bottom:1px solid #ccc;
 	height:180px;
-	width:680px;
+	width:device-width;
 }
 	
 	.mainsail {
@@ -221,7 +221,7 @@ body {
 
 
 #H_content {
-	width:660px;
+	width:device-width;
 	line-height:130%;
 	padding:0 10px 10px 10px;
 }
@@ -256,7 +256,7 @@ body {
 
 #whatsnew {
 	padding:0 0 10px 0;
-	width:450px;
+	width:device-width;
 }
 	#whatsnew #more {
 		margin-right:50px;
@@ -937,7 +937,7 @@ img.suttaReadings {
 
 
 .notebox {
-	width:400px;
+	width:device-width;
 	margin:.5em auto 1em 120px;
 	text-align:center;
 	border:1px solid #ccc;

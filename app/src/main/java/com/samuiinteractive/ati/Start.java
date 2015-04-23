@@ -54,9 +54,15 @@ public class Start extends Activity {
         mWebView.loadUrl(startUrl);
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.getSettings().setBuiltInZoomControls(true);
-        mWebView.setWebViewClient(new WebClient());
+        // added these two lines to auto-fit text:
+        //mWebView.getSettings().setLoadWithOverviewMode(true);
+        //mWebView.getSettings().setUseWideViewPort(true);
+
+        mWebView.setWebViewClient(new ATIWebViewClient());
     }
-    
+
+
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {
