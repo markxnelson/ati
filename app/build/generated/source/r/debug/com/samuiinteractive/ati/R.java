@@ -1238,12 +1238,14 @@ containing a value of this type.
         public static final int abc_text_size_subtitle_material_toolbar=0x7f070022;
         public static final int abc_text_size_title_material=0x7f070023;
         public static final int abc_text_size_title_material_toolbar=0x7f070024;
-        public static final int dialog_fixed_height_major=0x7f070025;
-        public static final int dialog_fixed_height_minor=0x7f070026;
-        public static final int dialog_fixed_width_major=0x7f070027;
-        public static final int dialog_fixed_width_minor=0x7f070028;
-        public static final int disabled_alpha_material_dark=0x7f070029;
-        public static final int disabled_alpha_material_light=0x7f07002a;
+        public static final int activity_horizontal_margin=0x7f070025;
+        public static final int activity_vertical_margin=0x7f070026;
+        public static final int dialog_fixed_height_major=0x7f070027;
+        public static final int dialog_fixed_height_minor=0x7f070028;
+        public static final int dialog_fixed_width_major=0x7f070029;
+        public static final int dialog_fixed_width_minor=0x7f07002a;
+        public static final int disabled_alpha_material_dark=0x7f07002b;
+        public static final int disabled_alpha_material_light=0x7f07002c;
     }
     public static final class drawable {
         public static final int abc_ab_share_pack_holo_dark=0x7f020000;
@@ -1431,14 +1433,17 @@ containing a value of this type.
         public static final int abc_shareactionprovider_share_with=0x7f0a000d;
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000e;
         public static final int abc_toolbar_collapse_description=0x7f0a000f;
-        public static final int app_name=0x7f0a0010;
-        public static final int bookmarks=0x7f0a0011;
-        public static final int hello=0x7f0a0012;
-        public static final int newbookmark=0x7f0a0013;
-        public static final int random=0x7f0a0014;
-        public static final int save=0x7f0a0015;
-        public static final int title=0x7f0a0016;
-        public static final int url=0x7f0a0017;
+        public static final int action_settings=0x7f0a0010;
+        public static final int app_name=0x7f0a0011;
+        public static final int bookmarks=0x7f0a0012;
+        public static final int hello=0x7f0a0013;
+        public static final int hello_world=0x7f0a0014;
+        public static final int newbookmark=0x7f0a0015;
+        public static final int random=0x7f0a0016;
+        public static final int save=0x7f0a0017;
+        public static final int title=0x7f0a0018;
+        public static final int title_activity_handle_url=0x7f0a0019;
+        public static final int url=0x7f0a001a;
     }
     public static final class style {
         public static final int Base_TextAppearance_AppCompat=0x7f0b0000;

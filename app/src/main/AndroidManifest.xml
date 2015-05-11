@@ -1,34 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.samuiinteractive.ati"
-    android:installLocation="preferExternal">
-    <uses-permission
-        android:name="android.permission.INTERNET" />
+    android:installLocation="preferExternal" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <supports-screens
-        android:normalScreens="true"
         android:anyDensity="true"
-        android:xlargeScreens="true"
         android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
         android:smallScreens="true"
-        android:resizeable="true"/>
+        android:xlargeScreens="true" />
+
     <application
+        android:allowBackup="true"
         android:icon="@drawable/icon"
-        android:label="@string/app_name"
-        android:allowBackup="true">
+        android:label="@string/app_name" >
         <activity
             android:name=".Start"
-            android:label="@string/app_name"
-            android:configChanges="orientation|screenSize">
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="Bookmarks"
-            android:label="@string/bookmarks"/>
+            android:name=".Bookmarks"
+            android:label="@string/bookmarks" />
         <activity
-            android:name="NewBookmark"
-            android:finishOnTaskLaunch="true"/>
+            android:name=".NewBookmark"
+            android:finishOnTaskLaunch="true" />
+        <activity
+            android:name=".HandleURL"
+            android:label="@string/title_activity_handle_url" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="ati" />
+            </intent-filter>
+        </activity>
     </application>
+
 </manifest>

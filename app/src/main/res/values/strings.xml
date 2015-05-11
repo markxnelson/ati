@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="hello">Hello World, Start!</string>
     <string name="app_name">ATI</string>
     <string name="random">Random Sutta</string>
@@ -8,4 +9,8 @@
     <string name="url">Page:</string>
     <string name="save">Save</string>
     <string name="newbookmark">New Bookmark</string>
+    <string name="title_activity_handle_url">HandleURL</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
 </resources>
