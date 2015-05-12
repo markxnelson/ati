@@ -18,7 +18,7 @@ public class HandleURL extends Activity {
         // add data bundle with url
 
         Uri data = ((Uri) getIntent().getData());
-        String address = data.toString().replace("ati://", "file://");
+        String address = data.toString().replace("http://offline.accesstoinsight.org", "file://");
 
         Bundle dataBundle = new Bundle();
         dataBundle.putString("url", address);

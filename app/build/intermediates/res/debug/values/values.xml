@@ -170,7 +170,7 @@
     <string name="random">Random Sutta</string>
     <string name="save">Save</string>
     <string name="title">Bookmark name:</string>
-    <string name="title_activity_handle_url">HandleURL</string>
+    <string name="title_activity_handle_url">Open with ATI</string>
     <string name="url">Page:</string>
     <!-- From: file:/C:/Users/Mark/AndroidstudioProjects/ATI/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>

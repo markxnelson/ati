@@ -42,7 +42,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="ati" />
+                <data android:scheme="http" />
+                <data android:host="offline.accesstoinsight.org" />
             </intent-filter>
         </activity>
     </application>

@@ -1342,6 +1342,7 @@ containing a value of this type.
         public static final int image=0x7f080023;
         public static final int listMode=0x7f080009;
         public static final int list_item=0x7f080025;
+        public static final int menu_item_share=0x7f08004e;
         public static final int middle=0x7f080015;
         public static final int never=0x7f080019;
         public static final int newbookmark=0x7f080041;

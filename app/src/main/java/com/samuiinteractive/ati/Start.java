@@ -5,6 +5,7 @@ import java.util.Random;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Display;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ShareActionProvider;
 
 
 public class Start extends Activity {
@@ -20,6 +22,7 @@ public class Start extends Activity {
 	WebView mWebView;
 	private String startUrl = "file:///android_asset/index.html";
 	private Random rand = new Random();
+    private ShareActionProvider shareActionProvider;
 	
     /** Called when the activity is first created. */
     @Override
@@ -27,17 +30,17 @@ public class Start extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        WindowManager wm = getWindowManager();
-        Display d = wm.getDefaultDisplay();
-        int width = d.getWidth();
-        System.out.println("[ATI] Width is :" + width);
-        if (width < 600) {
-        	System.out.println("[ATI] Detected small screen - using handheld CSS");
-        	startUrl = "file:///android_asset/hhindex.html";
-        } else {
-        	System.out.println("[ATI] Detected large screen - using tablet CSS");
-        	startUrl = "file:///android_asset/index.html";
-        }
+//        WindowManager wm = getWindowManager();
+//        Display d = wm.getDefaultDisplay();
+//        int width = d.getWidth();
+//        System.out.println("[ATI] Width is :" + width);
+//        if (width < 600) {
+//        	System.out.println("[ATI] Detected small screen - using handheld CSS");
+//        	startUrl = "file:///android_asset/hhindex.html";
+//        } else {
+//        	System.out.println("[ATI] Detected large screen - using tablet CSS");
+//        	startUrl = "file:///android_asset/index.html";
+//        }
         // look for data bundle
         String requestedUrl; 
         try {
@@ -50,18 +53,19 @@ public class Start extends Activity {
         } catch (Exception ignore) {}
 
         mWebView = (WebView) findViewById(R.id.webview);
-        mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.loadUrl(startUrl);
-        mWebView.getSettings().setJavaScriptEnabled(true);
+        ////mWebView.getSettings().setJavaScriptEnabled(true);
+        //mWebView.loadUrl(startUrl);
+        ////mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.getSettings().setBuiltInZoomControls(true);
         // added these two lines to auto-fit text:
         //mWebView.getSettings().setLoadWithOverviewMode(true);
         //mWebView.getSettings().setUseWideViewPort(true);
 
-        mWebView.setWebViewClient(new ATIWebViewClient());
+        mWebView.setWebViewClient(new WebClient());
+        setUpShare(startUrl);
+        mWebView.loadUrl(startUrl);
+
     }
-
-
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -75,21 +79,48 @@ public class Start extends Activity {
     private class WebClient extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            System.out.println("[ATI] WebView.shouldOverrideUrlLoading()");
             view.loadUrl(url);
+            setUpShare(url);
             return true;
         }
     }
-    
+
+    private void setUpShare(String url) {
+        // set up share intent
+        System.out.println("[ATI] setting share intent for url: " + url);
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_SUBJECT, "I want to share this document from ATI with you");
+        sendIntent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml("Please <a href=\"" + url.replaceAll("file://", "http://offline.accesstoinsight.org") + "\">click here</a> to open the document in ATI." +
+                "  If you get a popup asking which application to use, please choose ATI." +
+                "  Please note that you must have <a href=\"https://play.google.com/store/apps/details?id=com.samuiinteractive.ati\">ATI</a> installed," +
+                " and this link will only work with the Android version of ATI."));
+        sendIntent.setType("text/html");
+
+        if (shareActionProvider != null) {
+            shareActionProvider.setShareIntent(sendIntent);
+        }
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        System.out.println("[ATI] onCreateOptionsMenu()");
         super.onCreateOptionsMenu(menu);
-    	MenuInflater inflater = getMenuInflater();
-    	inflater.inflate(R.menu.menu, menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+
+        // set up share intent
+        MenuItem shareItem = menu.findItem(R.id.menu_item_share);
+        shareActionProvider = (ShareActionProvider) shareItem.getActionProvider();
+        setUpShare(mWebView.getUrl());
     	return true;
     }
-    
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        System.out.println("[ATI] onOptionsItem Selected()");
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.random:

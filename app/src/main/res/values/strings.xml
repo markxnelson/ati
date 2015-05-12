@@ -9,7 +9,7 @@
     <string name="url">Page:</string>
     <string name="save">Save</string>
     <string name="newbookmark">New Bookmark</string>
-    <string name="title_activity_handle_url">HandleURL</string>
+    <string name="title_activity_handle_url">Open with ATI</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
