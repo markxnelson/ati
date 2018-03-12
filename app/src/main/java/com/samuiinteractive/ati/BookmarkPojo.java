@@ -1,3 +1,5 @@
+// Copyright 2012, 2018, Mark Nelson. All rights reserved.
+
 package com.samuiinteractive.ati;
 
 public class BookmarkPojo {

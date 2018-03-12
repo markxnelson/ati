@@ -1,8 +1,9 @@
+// Copyright 2012, 2018, Mark Nelson. All rights reserved.
+
 package com.samuiinteractive.ati;
 
 import android.app.Activity;
 import android.content.ContentValues;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +17,6 @@ public class NewBookmark extends Activity implements OnClickListener {
 	
 	private TableLayout mView;
 
-	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,7 +49,6 @@ public class NewBookmark extends Activity implements OnClickListener {
 
 	}
 
-	//@Override
 	public void onClick(View v) {
 		// Save the new bookmark in the database
 		BookmarkPojo newBookmark = new BookmarkPojo();
@@ -59,40 +58,22 @@ public class NewBookmark extends Activity implements OnClickListener {
 		newBookmark.setUrl(theUrl);
 		insertBookmark(newBookmark);
 
-//		// redirect to main web view
-//		Intent startIntent = new Intent(NewBookmark.this, Start.class);
-//    	// add data bundle with url
-//    	Bundle dataBundle = new Bundle();
-//		dataBundle.putString("url", theUrl);
-//		startIntent.putExtras(dataBundle);
-//		NewBookmark.this.startActivity(startIntent);
-		this.finish();  // take this off the activity stack so we dont see it again if we his back
-
-		// this activity has finishOnTaskLaunch = true so it wont be in the activity stack if you hit back button
-		// .. but that alone does not seem to be enough without this.finish()
+		this.finish();
+		// take this off the activity stack so we don't see it again if we hit back
 
 	}
 
 	public void insertBookmark(BookmarkPojo bookmarkPojo){
 
-		// First we have to open our DbHelper class by creating a new object of that
 		BookmarkOpenHelper androidOpenDbHelperObj = new BookmarkOpenHelper(this);
-
-		// Then we need to get a writable SQLite database, because we are going to insert some values
-		// SQLiteDatabase has methods to create, delete, execute SQL commands, and perform other common database management tasks.
 		SQLiteDatabase sqliteDatabase = androidOpenDbHelperObj.getWritableDatabase();
 
-		// ContentValues class is used to store a set of values that the ContentResolver can process.
 		ContentValues contentValues = new ContentValues();
-
-		// Get values from the POJO class and passing them to the ContentValues class
 		contentValues.put(BookmarkOpenHelper.TITLE_COLUMN_NAME, bookmarkPojo.getTitle());
 		contentValues.put(BookmarkOpenHelper.URL_COLUMN_NAME, bookmarkPojo.getUrl());
 
-		// Now we can insert the data in to relevant table
 		sqliteDatabase.insert(BookmarkOpenHelper.BOOKMARKS_TABLE_NAME, null, contentValues);
 
-		// It is a good practice to close the database connections after you have done with it
 		sqliteDatabase.close();
 
 	}

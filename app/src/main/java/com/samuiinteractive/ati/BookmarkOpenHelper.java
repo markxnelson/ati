@@ -1,3 +1,5 @@
+// Copyright 2012, 2018, Mark Nelson. All rights reserved.
+
 package com.samuiinteractive.ati;
 
 import android.content.Context;
@@ -23,7 +25,6 @@ public class BookmarkOpenHelper  extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(BOOKMARKS_TABLE_CREATE);
-        //db.execSQL("INSERT INTO BOOKMARKS (TITLE, URL) VALUES ('TEST BOOKMARK','file:///android_asset/tipitaka/an/an01/an01.047.than.html')");
     }
 
 	@Override

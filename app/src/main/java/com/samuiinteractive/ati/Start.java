@@ -1,3 +1,5 @@
+// Copyright 2012, 2018, Mark Nelson. All rights reserved.
+
 package com.samuiinteractive.ati;
 
 import java.util.Random;
@@ -29,7 +31,7 @@ public class Start extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        
+
 //        WindowManager wm = getWindowManager();
 //        Display d = wm.getDefaultDisplay();
 //        int width = d.getWidth();
@@ -123,6 +125,10 @@ public class Start extends Activity {
         System.out.println("[ATI] onOptionsItem Selected()");
         // Handle item selection
         switch (item.getItemId()) {
+			case R.id.home:
+				System.out.println("[ATI] pressed HOME");
+				mWebView.loadUrl(startUrl);
+				return true;
             case R.id.random:
                 // load a random sutta
             	System.out.println("[ATI] pressed RANDOM");
