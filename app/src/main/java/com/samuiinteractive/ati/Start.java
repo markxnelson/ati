@@ -124,35 +124,35 @@ public class Start extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         System.out.println("[ATI] onOptionsItem Selected()");
         // Handle item selection
-        switch (item.getItemId()) {
-			case R.id.home:
-				System.out.println("[ATI] pressed HOME");
-				mWebView.loadUrl(startUrl);
-				return true;
-            case R.id.random:
-                // load a random sutta
-            	System.out.println("[ATI] pressed RANDOM");
-            	mWebView.loadUrl(suttas[rand.nextInt(suttas.length)]);
-                return true; 
-            case R.id.gotobookmarks:
-            	System.out.println("[ATI] pressed BOOKMARKS");
-            	Intent bookmarksIntent = new Intent(Start.this, Bookmarks.class);
-            	Start.this.startActivity(bookmarksIntent);
-            	return true;
-            case R.id.gotonewbookmark:
-            	System.out.println("[ATI] pressed NEWBOOKMARK");
-            	Intent newbookmarkIntent = new Intent(Start.this, NewBookmark.class);
-            	// add data bundle with url
-            	Bundle dataBundle = new Bundle();
-        		dataBundle.putString("url", mWebView.getUrl());
-        		dataBundle.putString("title", mWebView.getTitle());
-        		System.out.println("[ATI] the url is " + mWebView.getUrl());
-        		newbookmarkIntent.putExtras(dataBundle);
-            	Start.this.startActivity(newbookmarkIntent);
-            	return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+        int id = item.getItemId();
+		if (id == R.id.home) {
+			System.out.println("[ATI] pressed HOME");
+			mWebView.loadUrl(startUrl);
+			return true;
+		} else if (id == R.id.random) {
+			// load a random sutta
+			System.out.println("[ATI] pressed RANDOM");
+			mWebView.loadUrl(suttas[rand.nextInt(suttas.length)]);
+			return true;
+		} else if (id == R.id.gotobookmarks) {
+			System.out.println("[ATI] pressed BOOKMARKS");
+			Intent bookmarksIntent = new Intent(Start.this, Bookmarks.class);
+			Start.this.startActivity(bookmarksIntent);
+			return true;
+		} else if (id == R.id.gotonewbookmark) {
+			System.out.println("[ATI] pressed NEWBOOKMARK");
+			Intent newbookmarkIntent = new Intent(Start.this, NewBookmark.class);
+			// add data bundle with url
+			Bundle dataBundle = new Bundle();
+			dataBundle.putString("url", mWebView.getUrl());
+			dataBundle.putString("title", mWebView.getTitle());
+			System.out.println("[ATI] the url is " + mWebView.getUrl());
+			newbookmarkIntent.putExtras(dataBundle);
+			Start.this.startActivity(newbookmarkIntent);
+			return true;
+		} else {
+			return super.onOptionsItemSelected(item);
+		}
     }
     
     private String[] suttas = {
